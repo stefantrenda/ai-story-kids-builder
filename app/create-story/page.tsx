@@ -1,6 +1,7 @@
 'use client';
 import React from "react";
 import StorySubjectInput from "./_components/StorySubjectInput";
+import StoryType from "./_components/StoryType";
 
 export interface fieldData {
   fieldName: string;
@@ -28,9 +29,10 @@ function CreateStoryPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
         {/* Story Subject */}
-        {/* <StorySubjectInput userSelection={onHandleUserSelection} /> */}
+        <StorySubjectInput userSelection={onHandleUserSelection} />
 
         {/* Story Type */}
+        <StoryType />
 
         {/* Age group */}
 
