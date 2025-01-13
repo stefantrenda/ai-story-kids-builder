@@ -34,7 +34,7 @@ function StoryType({ userSelection }: any) {
   const onUserSelet = (item: OptionField) => {
     setSelectedOption(item.label);
     userSelection({
-      fieldName: "StoryType",
+      fieldName: "storyType",
       fieldValue: item.label,
     });
   };

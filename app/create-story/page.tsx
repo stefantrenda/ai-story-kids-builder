@@ -4,15 +4,29 @@ import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 import AgeGroup from "./_components/AgeGroup";
 import ImageType from "./_components/ImageType";
+import { Button } from "@nextui-org/button";
 
 export interface fieldData {
   fieldName: string;
   fieldValue: string;
 }
 
+export interface formDataType {
+  storySubject: string;
+  storyType: string;
+  ageGroup: string;
+  imageType: string;
+}
+
 function CreateStoryPage() {
+  const [formData, setFormData] = React.useState<formDataType>();
+  console.log("CreateStoryPage  formData", formData)
+
   const onHandleUserSelection = (data: fieldData) => {
-    console.log(data);
+    setFormData((prev: formDataType | any ) => ({
+      ...prev,
+      [data.fieldName]: data.fieldValue,
+    }));
   };
 
   return (
@@ -30,13 +44,19 @@ function CreateStoryPage() {
         <StorySubjectInput userSelection={onHandleUserSelection} />
 
         {/* Story Type */}
-        <StoryType userSelection={onHandleUserSelection}/>
+        <StoryType userSelection={onHandleUserSelection} />
 
         {/* Age group */}
-        <AgeGroup userSelection={onHandleUserSelection}/>
+        <AgeGroup userSelection={onHandleUserSelection} />
 
         {/* Image Style */}
-        <ImageType userSelection={onHandleUserSelection}/>
+        <ImageType userSelection={onHandleUserSelection} />
+      </div>
+
+      <div className="flex justify-end my-10">
+        <Button color="primary" className="p-10 text-2xl">
+          Generete Stroy
+        </Button>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ function AgeGroup({userSelection}: any) {
     const onUserSelet = (item: OptionField) => {
       setSelectedOption(item.label);
       userSelection({
-        fieldName: "StoryType",
+        fieldName: "ageGroup",
         fieldValue: item.label,
       });
     };

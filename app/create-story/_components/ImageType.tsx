@@ -34,7 +34,7 @@ function ImageType({ userSelection }: any) {
   const onUserSelet = (item: OptionField) => {
     setSelectedOption(item.label);
     userSelection({
-      fieldName: "ImageType",
+      fieldName: "imageType",
       fieldValue: item.label,
     });
   };
