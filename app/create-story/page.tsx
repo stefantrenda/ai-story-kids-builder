@@ -1,18 +1,16 @@
-'use client';
+"use client";
 import React from "react";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
+import AgeGroup from "./_components/AgeGroup";
+import ImageType from "./_components/ImageType";
 
 export interface fieldData {
   fieldName: string;
   fieldValue: string;
 }
 
-
-
 function CreateStoryPage() {
-
-
   const onHandleUserSelection = (data: fieldData) => {
     console.log(data);
   };
@@ -32,11 +30,13 @@ function CreateStoryPage() {
         <StorySubjectInput userSelection={onHandleUserSelection} />
 
         {/* Story Type */}
-        <StoryType />
+        <StoryType userSelection={onHandleUserSelection}/>
 
         {/* Age group */}
+        <AgeGroup userSelection={onHandleUserSelection}/>
 
         {/* Image Style */}
+        <ImageType userSelection={onHandleUserSelection}/>
       </div>
     </div>
   );

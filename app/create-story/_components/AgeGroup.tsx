@@ -1,49 +1,45 @@
 "use client";
 import { select } from "@nextui-org/theme";
-import { i, label } from "framer-motion/client";
+import { label } from "framer-motion/client";
 import Image from "next/image";
 import { useState } from "react";
+import { OptionField } from "./StoryType";
 
-export interface OptionField {
-  label: string;
-  imageURL: string;
-  isFree: boolean;
-}
-
-function StoryType({ userSelection }: any) {
+function AgeGroup({userSelection}: any) {
   const OptionsList = [
     {
-      label: "Story Book",
-      imageURL: "/story.png",
+      label: "0-2 Years",
+      imageURL: "/02Years.png",
       isFree: true,
     },
     {
-      label: "Bed Book",
-      imageURL: "/bedstory.png",
+      label: "3-5 Years",
+      imageURL: "/35Years.png",
       isFree: true,
     },
     {
-      label: "Educational",
-      imageURL: "/educational.png",
+      label: "5-8 Years",
+      imageURL: "/58Years.png",
       isFree: true,
     },
   ];
 
   const [selectedOption, setSelectedOption] = useState<string>("");
 
-  const onUserSelet = (item: OptionField) => {
-    setSelectedOption(item.label);
-    userSelection({
-      fieldName: "StoryType",
-      fieldValue: item.label,
-    });
-  };
+    const onUserSelet = (item: OptionField) => {
+      setSelectedOption(item.label);
+      userSelection({
+        fieldName: "StoryType",
+        fieldValue: item.label,
+      });
+    };
+  
 
   return (
     <div>
-      <label className="font-bold text-4xl text-primary">2. Story Type</label>
+      <label className="font-bold text-4xl text-primary">3. Age Group</label>
       <div className="grid grid-cols-3 gap-5 mt-3 ">
-        {OptionsList.map((item: OptionField, index) => (
+        {OptionsList.map((item, index) => (
           <div
             key={index}
             className={`relative cursor-pointer grayscale hover:grayscale-0 p-1 ${
@@ -69,4 +65,4 @@ function StoryType({ userSelection }: any) {
     </div>
   );
 }
-export default StoryType;
+export default AgeGroup;
